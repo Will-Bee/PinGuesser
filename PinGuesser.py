@@ -1,52 +1,68 @@
 from random import randint as r
-from time import time
+from time import time, sleep
 from itertools import count as c
-from os import system as cmd
+from os import system as cmd, name as osname
 # Imports
 
 
-# Set Variables
 
+def main(passwd, length, console_output, live_output):
+    cmd('cls' if osname == 'nt' else 'clear')
 
-def main(passwd, length, UI):
-    cmd('cls' if os.name == 'nt' else 'clear')
-    MaxNum = 10 ** length
-    i = 1
-    t1 = round(time() * 1000)
-    if passwd >= MaxNum:
-        print("No way")
-        print("Debug: pin =", passwd)
-        print("How many numbers:", length)
-        exit()
-    if UI == True:
-        for i in c(start=1):
-            x = r(0, MaxNum)
-            print(i, "Pokusů   ", length, ": Počet čísel", "   ", "Pin:", x)
-            if x == passwd:
-                print("Pin is guessed:", x)
-                t2 = round(time() * 1000)
-                t = t2 - t1
-                print(t / 1000, "sekund")
-                print(i, "pokusů")
-                exit()
-    if UI == False:
-        print("Guessing...")
-        for i in c(start=1):
-            x = r(0, MaxNum)
-            if x == passwd:
-                print("Pin is guessed:", x)
-                t2 = round(time() * 1000)
-                t = t2 - t1
-                print(t / 1000, "sekund")
-                print(i, "pokusů")
-                exit()
+    if console_output == True:
+        if live_output == True:
+            MaxNum = 10 ** length
+            t1 = time()
+            for i in c(start=1):
+                x = r(0, MaxNum)
+                print(i, "Tries   ", length, "Nums lenght", "   ", "Current pin:", x)
+                if x == passwd:
+                    t2 = time()
+                    print("Pin is guessed:", x)
+                    t = t2 - t1
+                    print(t, "Seconds, with output")
+                    print(i, "Tries")
+                    return i,t
+                    break
 
+        elif live_output == False:
+            MaxNum = 10 ** length
+            t1 = time()
+            for i in c(start=1):
+                x = r(0, MaxNum)
+                if x == passwd:
+                    t2 = time()
+                    print("Pin is guessed:", x)
+                    t = t2 - t1
+                    print(t, "Seconds")
+                    print(i, "Tries")
+                    return i,t
+                    break
 
-print(c(start=1))
+    elif console_output == False:
+        if live_output == True:
+            MaxNum = 10 ** length
+            t1 = time()
+            for i in c(start=1):
+                x = r(0, MaxNum)
+                if x == passwd:
+                    t2 = time()
+                    t = t2 - t1
+                    return i,t
+                    break
 
+        elif live_output == False:
+            MaxNum = 10 ** length
+            t1 = time()
+            for i in c(start=1):
+                x = r(0, MaxNum)
+                if x == passwd:
+                    t2 = time()
+                    t = t2 - t1
+                    return i,t
+                    break
 
-# Main function
 
 
 if __name__ == "__main__":
-    main(123, 4, False)
+    main(7332, 4, True, False)
