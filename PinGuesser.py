@@ -1,6 +1,7 @@
 from random import randint as r
 from time import time
 from itertools import count as c
+from os import system as cmd
 # Imports
 
 
@@ -8,6 +9,7 @@ from itertools import count as c
 
 
 def main(passwd, length, UI):
+    cmd('cls' if os.name == 'nt' else 'clear')
     MaxNum = 10 ** length
     i = 1
     t1 = round(time() * 1000)
