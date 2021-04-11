@@ -22,7 +22,6 @@ def main(passwd, length, console_output, live_output):
                     t = t2 - t1
                     print(t, "Seconds, with output")
                     print(i, "Tries")
-                    return i,t
                     break
 
         elif live_output == False:
@@ -36,7 +35,6 @@ def main(passwd, length, console_output, live_output):
                     t = t2 - t1
                     print(t, "Seconds")
                     print(i, "Tries")
-                    return i,t
                     break
 
     elif console_output == False:
@@ -48,21 +46,17 @@ def main(passwd, length, console_output, live_output):
                 if x == passwd:
                     t2 = time()
                     t = t2 - t1
-                    return i,t
                     break
 
         elif live_output == False:
-            MaxNum = 10 ** length
-            t1 = time()
-            for i in c(start=1):
-                x = r(0, MaxNum)
-                if x == passwd:
-                    t2 = time()
-                    t = t2 - t1
-                    return i,t
-                    break
+            print("What do you expect? gui is of but live feed on? really?")
+            i = "nonsence"
+            t = "nonsence"
+    return i,t
 
 
 
 if __name__ == "__main__":
-    main(7332, 4, True, False)
+    main(7332, 4, False, True)
+
+    print(main(5, 1, False, False))
