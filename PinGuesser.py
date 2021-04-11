@@ -3,9 +3,11 @@ from time import time
 from itertools import count as c
 # Imports
 
+
 # Set Variables
 
-def main(passwd, length):
+
+def main(passwd, length, UI):
     MaxNum = 10 ** length
     i = 1
     t1 = round(time() * 1000)
@@ -14,16 +16,28 @@ def main(passwd, length):
         print("Debug: pin =", passwd)
         print("How many numbers:", length)
         exit()
-    for i in c(start=1):
-        x = r(0, MaxNum)
-        print(i, "Pokusů   ", length, "Počet čísel", "   ", "Pin:", x)
-        if x == passwd:
-            print("Pin is guessed:", x)
-            t2 = round(time() * 1000)
-            t = t2 - t1
-            print(t / 1000, "sekund")
-            print(i, "pokusů")
-            exit()
+    if UI == True:
+        for i in c(start=1):
+            x = r(0, MaxNum)
+            print(i, "Pokusů   ", length, ": Počet čísel", "   ", "Pin:", x)
+            if x == passwd:
+                print("Pin is guessed:", x)
+                t2 = round(time() * 1000)
+                t = t2 - t1
+                print(t / 1000, "sekund")
+                print(i, "pokusů")
+                exit()
+    if UI == False:
+        print("Guessing...")
+        for i in c(start=1):
+            x = r(0, MaxNum)
+            if x == passwd:
+                print("Pin is guessed:", x)
+                t2 = round(time() * 1000)
+                t = t2 - t1
+                print(t / 1000, "sekund")
+                print(i, "pokusů")
+                exit()
 
 
 print(c(start=1))
@@ -33,4 +47,4 @@ print(c(start=1))
 
 
 if __name__ == "__main__":
-    main(123, 4)
+    main(123, 4, False)
