@@ -7,7 +7,7 @@ Just thing i did while learning Python
 
 `main(1234, 4, False, True)`
 
-`main(passwd, length, console_output, live_output):`
+`main(passwd, length, console_output, live_output)`
 
 passwd = your pin
 lenght = lenght of that pin
