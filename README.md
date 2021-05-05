@@ -1,7 +1,7 @@
 # PinGuesser
 Just thing i did while learning Python
 
-you can see efficiency of BruteForce strateg here
+you can see efficiency of BruteForce strategy here
 
 # How to use
 
