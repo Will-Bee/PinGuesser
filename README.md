@@ -12,6 +12,9 @@ you can see efficiency of BruteForce strategy here
 `main(passwd, length, console_output, live_output)`
 
 passwd = your pin
+
 lenght = lenght of that pin
+
 console_output = print some basic data
+
 live_output = console output of guessing, disable for better performance
